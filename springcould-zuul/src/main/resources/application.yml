@@ -1,0 +1,23 @@
+server:
+  port: 9990
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10000/eureka/
+  instance:
+    instance-id: ${eureka.instance.ip-address}:${server.port}
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 6
+    lease-renewal-interval-in-seconds: 2
+#    hostname: localhost
+#    statusPageUrlPath: /producer
+#    healthCheckUrlPath: /health
+#    homePageUrl: /info
+
+spring:
+  application:
+    name: zuul
+  profiles:
+    active: custom

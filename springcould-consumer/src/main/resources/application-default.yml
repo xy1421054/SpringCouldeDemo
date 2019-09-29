@@ -1,0 +1,28 @@
+server:
+  port: 12000
+eureka:
+  client:
+    service-url:
+       defaultZone: http://localhost:10000/eureka/
+  instance:
+    instance-id: ${eureka.instance.ip-address}:${server.port}@project.version@
+    prefer-ip-address: true  #显示IP地址
+    ip-address: 127.0.0.1
+spring:
+  application:
+    name: consumer
+logging:
+  level:
+   xy.consumer.feign.FeignClientFooConfigurationDao: info
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' #允许显示所有信息，包括/actuator/health，/actuator/hystrix.stream
+feign:
+  hystrix:
+    enabled: true #开启feign 熔断
+turbine:
+  aggregator:
+    clusterConfig: CONSUMER
+  appConfig: consumer

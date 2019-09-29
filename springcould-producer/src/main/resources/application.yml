@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    active: default
+feign:
+  hystrix:
+    enabled: true #开启feign 熔断

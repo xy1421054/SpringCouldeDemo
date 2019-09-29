@@ -1,0 +1,27 @@
+server:
+  port: 11000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10000/eureka/
+  instance:
+    instance-id: ${eureka.instance.ip-address}:${server.port}
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 6
+    lease-renewal-interval-in-seconds: 2
+#    hostname: localhost
+#    statusPageUrlPath: /producer
+#    healthCheckUrlPath: /health
+#    homePageUrl: /info
+
+spring:
+  application:
+    name: producer
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' #允许显示所有信息，包括/actuator/health，/actuator/hystrix.stream

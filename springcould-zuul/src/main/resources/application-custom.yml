@@ -1,0 +1,6 @@
+zuul:
+  routes:
+   producer: /serviceP/** #自定义配置路由服务映射
+   consumer-test: /testService/**
+  ignored-services:  consumer-test #取消代理consumer-test服务
+

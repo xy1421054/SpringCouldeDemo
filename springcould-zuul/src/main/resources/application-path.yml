@@ -1,0 +1,5 @@
+ zuul:
+  routes: #配置路由设置
+    users:  #随便写，但是必须是唯一的
+      path: /myusers/**  #映射的路径
+      serviceId: users_service  #给哪个服务做映射
